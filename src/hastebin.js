@@ -18,10 +18,11 @@ function createPaste (content, options, gotOptions) {
     body: content,
     json: true,
     headers: {}
-  }, gotOptions);
-  
-  if (!resolvedGotOptions['Content-Type'])
-      resolvedGotOptions['Content-Type'] = (options ? options.contentType : null) || 'text/plain';
+  }, gotOptions)
+
+  if (!resolvedGotOptions['Content-Type']) {
+    resolvedGotOptions['Content-Type'] = (options ? options.contentType : null) || 'text/plain'
+  }
 
   return got(postUrl, resolvedGotOptions).then(function (result) {
     if (!result.body || !result.body.key) {
