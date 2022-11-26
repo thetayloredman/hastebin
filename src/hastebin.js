@@ -20,7 +20,7 @@ function createPaste (content, options, gotOptions) {
     headers: {}
   }, gotOptions);
   
-  if (!resolvedGotOptions['Content-Type']
+  if (!resolvedGotOptions['Content-Type'])
       resolvedGotOptions['Content-Type'] = (options ? options.contentType : null) || 'text/plain';
 
   return got(postUrl, resolvedGotOptions).then(function (result) {
