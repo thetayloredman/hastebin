@@ -17,10 +17,11 @@ function createPaste (content, options, gotOptions) {
   var resolvedGotOptions = Object.assign({
     body: content,
     json: true,
-    headers: {
-      'Content-Type': (options ? options.contentType : null) || 'text/plain'
-    }
-  })
+    headers: {}
+  }, gotOptions);
+  
+  if (!resolvedGotOptions['Content-Type']
+      resolvedGotOptions['Content-Type'] = (options ? options.contentType : null) || 'text/plain';
 
   return got(postUrl, resolvedGotOptions).then(function (result) {
     if (!result.body || !result.body.key) {
