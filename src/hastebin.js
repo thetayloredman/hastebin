@@ -11,7 +11,7 @@ function createPaste (content, options, gotOptions) {
     return Promise.reject(new Error('You cannot send nothing.'))
   }
 
-  var hasteServer = (options ? options.server : null) || 'https://hastebin.com'
+  var hasteServer = (options ? options.server : null) || 'https://paste.0xlogn.dev'
   var postUrl = url.resolve(hasteServer, 'documents')
 
   var resolvedGotOptions = Object.assign({
