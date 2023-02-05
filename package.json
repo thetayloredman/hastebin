@@ -34,7 +34,6 @@
     "dependencies": {},
     "devDependencies": {
         "@types/node": "^18.11.19",
-        "@zirco-lang/eslint-config": "^1.1.0",
         "@zirco-lang/prettier-config": "^1.0.0",
         "@zirco-lang/ts-config": "^2.0.0",
         "prettier": "^2.8.3",
