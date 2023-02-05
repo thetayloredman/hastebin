@@ -27,14 +27,11 @@ $ npm install hastebin-v1
 ```js
 import hastebin from "hastebin-v1";
 
-hastebin(
-    "content for your paste",
-    {
-        raw: true,
-        contentType: "text/plain",
-        server: "https://your-hastebin-instance.com"
-    }
-)
+hastebin("content for your paste", {
+    raw: true,
+    contentType: "text/plain",
+    server: "https://your-hastebin-instance.com"
+})
     .then(function (urlToPaste) {})
     .catch(function (requestError) {});
 ```

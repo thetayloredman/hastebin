@@ -40,7 +40,7 @@ export default async function createPaste(content: string, options: Options = {}
             body: content,
             json: true as const,
             headers: new Headers(),
-            method: 'post'
+            method: "post"
         },
         fetchOptions
     );
@@ -48,7 +48,7 @@ export default async function createPaste(content: string, options: Options = {}
     // TODO: Does Hastebin really rely on the content-type header at all? Maybe this is useless.
     resolvedFetchOptions.headers.append("Content-Type", options.contentType ?? "text/plain");
 
-    const {key} = (await fetch(postUrl, resolvedFetchOptions).then((res) => res.json())) as HasteAPIResult;
+    const { key } = (await fetch(postUrl, resolvedFetchOptions).then((res) => res.json())) as HasteAPIResult;
 
     if (!key) throw new Error("Haste did not return an actual key!");
 
