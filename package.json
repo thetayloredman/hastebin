@@ -1,10 +1,14 @@
 {
     "name": "hastebin-v1",
-    "main": "src/hastebin.js",
+    "main": "dist/index.js",
+    "type": "module",
     "version": "0.3.0",
     "description": "Node.js module for Hastebin",
-    "author": "Rahat Ahmed",
-    "typings": "./index.d.ts",
+    "author": "0xLogN",
+    "typings": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
     "readme": "https://github.com/thetayloredman/hastebin#readme",
     "license": "MIT",
     "repository": {
@@ -27,24 +31,22 @@
             "url": "https://0xlogn.dev"
         }
     ],
-    "dependencies": {
-        "get-stream": "^5.1.0",
-        "got": "^5.3.0"
-    },
+    "dependencies": {},
     "devDependencies": {
-        "@types/got": "^9.6.7",
+        "@types/node": "^18.11.19",
+        "@zirco-lang/eslint-config": "^1.1.0",
         "@zirco-lang/prettier-config": "^1.0.0",
-        "get-stdin": "^5.0.1",
+        "@zirco-lang/ts-config": "^2.0.0",
         "prettier": "^2.8.3",
-        "standard": "^11.0.1"
+        "typescript": "^4.9.5"
     },
     "scripts": {
-        "lint": "standard",
-        "test": "npm run lint && echo 'test' | node src/cli.js | node test/test.js",
-        "prepublish": "npm test",
-        "fix": "standard --fix"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "tsc",
+        "prepublish": "npm run build",
+        "prettier": "prettier . -w"
     },
     "engines": {
-        "node": ">=4"
+        "node": ">=18"
     }
 }

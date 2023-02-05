@@ -1,0 +1,9 @@
+{
+    "extends": "./node_modules/@zirco-lang/ts-config/tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "declaration": true
+    },
+    "include": ["./src/*", "./src/**/*", "./test/*", "./test/**/*"],
+    "exclude": ["./node_modules/"]
+}
