@@ -1,69 +1,43 @@
-# hastebin
+# hastebin-v1
 
-CLI tool that uploads text to hastebin. (Basically a Node.js version of [haste-client](https://github.com/seejohnrun/haste-client))
+Fork of [`hastebin`](https://npmjs.com/package/hastebin) that is actively maintained.
+
+## Why does this fork exist?
+
+The upstream module does not appear to be actively maintained anymore, so I have taken it into my own hands. I use this module in one of my projects, [Lexi](https://github.com/thetayloredman/Lexi) so I wanted a stable interface.
+
+## What changed?
+
+This package has a much more specific scope than `hastebin`. It simply aims to handle using Haste from within programs, and does not take on the CLI application role of haste-client.
+
+Because of Hastebin being recently acquired by Toptal, this package only supports a v1 haste-server. The default server has been changed to my server, [paste.0xlogn.dev](https://paste.0xlogn.dev/) for this reason.
 
 ## Installation
 
-To install this package globally using NPM, run:
-`npm install -g hastebin`
+`hastebin-v1` supports Node.js 16 and 18.
 
-To try this package out before you install, try `npx hastebin`.
-
-To install this package locally, try `npm i hastebin`. You can then access the `hastebin` client via NPM scripts.
+```
+$ npm install hastebin-v1
+```
 
 ## Usage
 
-### Via the Shell
-
-```sh
-$ hastebin --help
-Usage: <other-command> | hastebin
-or:    hastebin [file]
-
-Examples:
-  echo "Hello" | hastebin    upload text from stdin
-  hastebin text.txt          upload text from a file
-
-
-Options:
-  -r, --raw   Output the link to the raw text
-  -h, --help  Show help                      
-```
-
-#### Example
-
-```sh
-$ echo "hi" | hastebin
-http://hastebin.com/ilitixevat
-```
-
----
-
-### Via the JavaScript API
-
 ```js
-var hastebin = require('hastebin')
+const hastebin = require("hastebin-v1");
 
-hastebin.createPaste('content for your paste', {
-  raw: true,
-  contentType: 'text/plain',
-  server: 'https://hastebin.com'
-}, /* options for the 'got' module here */ {})
-  .then(function (urlToPaste) {})
-  .catch(function (requestError) {})
+hastebin
+    .createPaste(
+        "content for your paste",
+        {
+            raw: true,
+            contentType: "text/plain",
+            server: "https://hastebin.com"
+        },
+        /* options for the 'got' module here */ {}
+    )
+    .then(function (urlToPaste) {})
+    .catch(function (requestError) {});
 ```
-
-## Custom server
-
-By default, hastebin will point to `http://hastebin.com`. You can set the `HASTE_SERVER` environment variable to configure this.
-
-```sh
-alias work_haste="HASTE_SERVER=http://something.com haste"
-```
-
-## Building
-
-To compile the source just run `npm run build`.
 
 ## License
 
